@@ -1,0 +1,21 @@
+Отчет о дефектах.
+
+Функция capitalize принимает на вход текст в верхнем регистре,
+и возвращает этот же в текст в нижнем регистре, оставляя заглавной только первую букву.
+
+Функция:
+def capitalize(self, string: str) -> str:
+        return string.capitalize()
+
+Проверка:
+@pytest.mark.parametrize("input_str, expected", [
+    ("БЕСКОНЕЧНОСТЬ", "БЕСКОНЕЧНОСТЬ")
+])
+def test_capitalize_positive(input_str, expected):
+    assert string_utils.capitalize(input_str) == expected
+
+Ожидаемый результат: PASSED
+    assert 'БЕСКОНЕЧНОСТЬ' = 'БЕСКОНЕЧНОСТЬ'
+
+Фактический результат: FAILED
+    AssertionError: assert 'Бесконечность' == 'БЕСКОНЕЧНОСТЬ'
