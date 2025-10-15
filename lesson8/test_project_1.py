@@ -1,7 +1,7 @@
 import requests
 import pytest
 
-TOKEN =""
+TOKEN = ""
 BASE_URL = "https://ru.yougile.com/api-v2/projects"
 
 HEADERS = {
