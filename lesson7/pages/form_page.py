@@ -12,8 +12,10 @@ class FormPage:
             self.driver.find_element(By.NAME, field_name).send_keys(value)
 
     def submit_form(self):
-        submit_button = self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
-        WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(submit_button)).click()
+        submit_button = (By.CSS_SELECTOR, "button[type='submit']")
+        element = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located(submit_button))
+        self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element)
+        self.driver.execute_script("arguments[0].click();", element)
 
     def wait_for_zip_code(self):
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.ID, "zip-code")))
@@ -25,3 +27,4 @@ class FormPage:
     def get_field_color(self, field_name):
         field = self.driver.find_element(By.CSS_SELECTOR, f"[id='{field_name}']")
         return field.value_of_css_property("background-color")
+
