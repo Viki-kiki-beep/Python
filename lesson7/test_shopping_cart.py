@@ -11,8 +11,9 @@ def test_03_shop():
     shop_page.add_products()
     shop_page.shopping_cart()
     shop_page.checkout()
-    shop_page.your_information("Vika", "Kos", "181718")
+    shop_page.your_information("Mikhail", "Amnyakov", "181718")
     total_value = shop_page.total()
 
     assert total_value == "Total: $58.29"
     driver.quit()
+
